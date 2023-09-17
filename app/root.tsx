@@ -3,6 +3,8 @@ import type { LinksFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import styles from './tailwind.css';
+import { ThemeProvider } from 'contexts/ThemeContext';
+import Navbar from './components/Navbar';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
@@ -18,8 +20,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body className=' bg-slate-100/[0.6] dark:bg-BG_VeryDarkBlue'>
+        <ThemeProvider>
+          <Navbar className='bg-white dark:bg-EL_DarkBlue' />
+          <Outlet />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
