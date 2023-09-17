@@ -1,4 +1,4 @@
-import { type ActionFunctionArgs, type MetaFunction } from '@remix-run/node';
+import { ActionArgs, type MetaFunction } from '@remix-run/node';
 import {  Form, useActionData } from '@remix-run/react';
 import { useGlobalContext } from 'contexts/ThemeContext';
 import { CountryTile } from 'lib/types';
@@ -7,10 +7,14 @@ import RegionFilter from '~/components/RegionFilter';
 import SearchBar from '~/components/SearchBar';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'New Remix App' }, { name: 'description', content: 'Welcome to Remix!' }];
+  return {
+    title: 'Country App',
+    description: 'A country app built with Remix',
+    
+  };
 };
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action = async ({ request }: ActionArgs) => {
   const countries:CountryTile[] = await fetch(`https://restcountries.com/v3.1/all`)
   // Fetch data from api
   .then((res) => res.json())
