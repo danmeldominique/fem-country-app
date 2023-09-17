@@ -14,10 +14,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
-    "@remix-run/css-bundle": "1.19.3",
-    "@remix-run/node": "1.19.3",
-    "@remix-run/react": "1.19.3",
-    "@remix-run/serve": "1.19.3",
+    "@remix-run/css-bundle": "^2.0.0",
+    "@remix-run/node": "^2.0.0",
+    "@remix-run/react": "^2.0.0",
+    "@remix-run/serve": "^2.0.0",
     "clsx": "^2.0.0",
     "concurrently": "^8.2.1",
     "isbot": "^3.6.8",
@@ -26,17 +26,9 @@
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "1.19.3",
-    "@remix-run/eslint-config": "1.19.3",
+    "@remix-run/dev": "^2.0.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.3",
     "typescript": "^5.1.6"
   },

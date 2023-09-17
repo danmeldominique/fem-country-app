@@ -1,5 +1,5 @@
 import { cssBundleHref } from '@remix-run/css-bundle';
-import type { LinksFunction } from '@remix-run/node';
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import styles from './tailwind.css';
@@ -10,6 +10,13 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    {title : "Countries App"},
+    {name: "description", content: "A simple app to view countries and their details"},
+  ]
+};
 
 export default function App() {
   return (
