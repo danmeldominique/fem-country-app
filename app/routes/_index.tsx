@@ -1,10 +1,17 @@
-import {  ActionFunctionArgs } from '@remix-run/node';
-import {  Form, useActionData } from '@remix-run/react';
+import { ActionFunctionArgs } from '@remix-run/node';
+import {  Form, MetaFunction, useActionData } from '@remix-run/react';
 import { useGlobalContext } from 'contexts/ThemeContext';
 import { CountryTile } from 'lib/types';
 import CountryList from '~/components/CountryList';
 import RegionFilter from '~/components/RegionFilter';
 import SearchBar from '~/components/SearchBar';
+
+export const meta: MetaFunction = () => {
+  return [
+    {title : "Countries App"},
+    {name: "description", content: "A simple app to view countries and their details"},
+  ]
+};
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   

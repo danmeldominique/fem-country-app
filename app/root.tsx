@@ -29,7 +29,7 @@ export default function App() {
       </head>
       <body className=' bg-slate-100/[0.6] dark:bg-BG_VeryDarkBlue'>
         <ThemeProvider>
-          <Navbar className='bg-white dark:bg-EL_DarkBlue' />
+          <Navbar />
           <Outlet />
         </ThemeProvider>
         <ScrollRestoration />
