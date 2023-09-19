@@ -7,11 +7,11 @@ type CountryTileProps = {
 
 export default function CountryList({ data }: CountryTileProps) {
   return (
-    <div className='grid gap-x-4 gap-y-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto'>
+    <div className='grid gap-y-4 justify-around grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full'>
         {
             data && data.map((country) => {
                     return (
-                        <Link key={country.code} to={`/country/${country.code}`}>
+                        <Link key={country.code} to={`/country/${country.code}`} className="mx-auto">
                             <div className='w-72 h-88 rounded-md shadow-md bg-white dark:bg-EL_DarkBlue dark:text-white'>
                                 <img src={country.imageUrl} alt={country.name} className='w-full h-40 rounded-t-md object-cover' />
                                 <div className='px-8 py-6'>

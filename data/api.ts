@@ -14,7 +14,7 @@ export const ToCountry = (data:any):Country => {
         population: data.population,
         region: data.region,
         subregion: data.subregion,
-        capital: data.capital.join(', '),
+        capital: data.capital ? data.capital.join(', ') : '',
         topLevelDomain: data.tld.join(', '),
         currencies: Object.values(data.currencies).map((c:any) => c.name).join(', '),
         languages: Object.values(data.languages).join(', '),

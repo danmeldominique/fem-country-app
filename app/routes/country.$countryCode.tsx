@@ -17,7 +17,6 @@ export const loader = async ({ params }: { params: { countryCode: string } }) =>
     .then((res) => res.json())
     .then(async (_data) => {
       const country = ToCountry(_data[0])
-      console.log(country)
       country.borders = country.borders.length > 0 ? await getBorderNames(country.borders.map(border => border.cca3)) : [];
       return {
         country,
@@ -36,11 +35,11 @@ const renderCountry = (data: Country) => {
         <ArrowLeftIcon className="w-6 h-6" />
         <span className="">Back</span>
       </Link>
-      <div className="w-full" >
-        
-        <img src={data.flag} height={213} width={320} className='mx-auto my-10'  />
+    <div className='flex flex-row space-x-8 mt-[7rem]'>
+    <div className="w-1/2" >       
+        <img src={data.flag} height={'100%'} width={'100%'} className=''  />
       </div>
-      <div className="flex flex-col mt-6">
+      <div className="flex flex-col w-1/2">
         <h1 className="font-bold text-2xl">{data.name}</h1>
         <div className="flex mt-6 flex-col mb-4 space-y-2">
           <div className="flex flex-row">
@@ -97,6 +96,7 @@ const renderCountry = (data: Country) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
