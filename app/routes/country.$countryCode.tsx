@@ -8,7 +8,7 @@ const getBorderNames = async (borders: string[]) => {
     const data = await fetch(`https://restcountries.com/v3.1/alpha?codes=${borders.join(',')}&fields=cca3,name`)
         .then((res) => res.json())
         .then((_data:any[]) => _data.map((country: any): BorderCountry => {return {cca3: country.cca3, name: country.name.common}}));
-    return data;
+    return data.sort((a,b) => (a.name < b.name ? -1 : 1));
   };
 
 export const loader = async ({ params }: { params: { countryCode: string } }) => {
@@ -35,11 +35,11 @@ const renderCountry = (data: Country) => {
         <ArrowLeftIcon className="w-6 h-6" />
         <span className="">Back</span>
       </Link>
-    <div className='flex flex-row space-x-8 mt-[7rem]'>
-    <div className="w-1/2" >       
+    <div className='flex flex-col sm:flex-row space-y-8 sm:space-y-0 sm:space-x-8 mt-[7rem]'>
+    <div className="sm:w-1/2" >       
         <img src={data.flag} height={'100%'} width={'100%'} className=''  />
       </div>
-      <div className="flex flex-col w-1/2">
+      <div className="flex flex-col sm:w-1/2">
         <h1 className="font-bold text-2xl">{data.name}</h1>
         <div className="flex mt-6 flex-col mb-4 space-y-2">
           <div className="flex flex-row">
@@ -48,7 +48,7 @@ const renderCountry = (data: Country) => {
           </div>
           <div className="flex flex-row">
             <p className="font-bold">Population: </p>
-            <p className="font-light ml-2">{data.population}</p>
+            <p className="font-light ml-2">{data.population.toLocaleString()}</p>
           </div>
           <div className="flex flex-row">
             <p className="font-bold">Region: </p>
